@@ -62,8 +62,19 @@ export default function DashboardPage() {
 
       <main className="max-w-6xl mx-auto p-4 mt-6">
         <h2 className="text-2xl font-bold mb-6">All Professionals</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {profiles.map((profile) => (
+        {profiles.length === 0 ? (
+          <div className="text-center py-12">
+            <p className="text-gray-500 text-lg mb-4">No profiles found yet.</p>
+            <p className="text-gray-400 text-sm mb-6">
+              Be the first to create a profile, or seed the database with dummy data.
+            </p>
+            <Button onClick={() => router.push('/profile')}>
+              Create Your Profile
+            </Button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {profiles.map((profile) => (
             <Card
               key={profile.id}
               className="cursor-pointer hover:shadow-lg transition-shadow"
@@ -94,7 +105,8 @@ export default function DashboardPage() {
               </CardContent>
             </Card>
           ))}
-        </div>
+          </div>
+        )}
       </main>
     </div>
   );
