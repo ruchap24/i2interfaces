@@ -2,9 +2,9 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuthStore } from '@//store/authStore';
-import { Button } from '@//components/ui/button';
-import { Card, CardContent } from '@//components/ui/card';
+import { useAuthStore } from '@/store/authStore';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 import { Users, Briefcase, Award } from 'lucide-react';
 
 export default function HomePage() {

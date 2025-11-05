@@ -3,12 +3,12 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { Button } from '@//components/ui/button';
-import { Input } from '@//components/ui/input';
-import { Label } from '@//components/ui/label';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@//components/ui/card';
-import { authAPI } from '@//services/api';
-import { useAuthStore } from '@//store/authStore';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { authAPI } from '@/services/api';
+import { useAuthStore } from '@/store/authStore';
 import { toast } from 'sonner';
 
 export default function SignupPage() {

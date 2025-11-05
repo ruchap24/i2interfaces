@@ -2,14 +2,14 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuthStore } from '@//store/authStore';
-import { profileAPI, experienceAPI, educationAPI, skillAPI } from '@//services/api';
-import { Profile } from '@//types';
-import { Button } from '@//components/ui/button';
-import { Input } from '@//components/ui/input';
-import { Textarea } from '@//components/ui/textarea';
-import { Label } from '@//components/ui/label';
-import { Card, CardContent, CardHeader, CardTitle } from '@//components/ui/card';
+import { useAuthStore } from '@/store/authStore';
+import { profileAPI, experienceAPI, educationAPI, skillAPI } from '@/services/api';
+import { Profile } from '@/types';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from 'sonner';
 import { ArrowLeft, Plus, Trash2 } from 'lucide-react';
 

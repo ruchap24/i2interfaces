@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuthStore } from '@//store/authStore';
-import { profileAPI } from '@//services/api';
-import { Profile } from '@//types';
-import { Button } from '@//components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@//components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@//components/ui/avatar';
-import { Badge } from '@//components/ui/badge';
+ import { useAuthStore } from '@/store/authStore';
+import { profileAPI } from '@/services/api';
+import { Profile } from '@/types';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Badge } from '@/components/ui/badge';
 import { MapPin, Briefcase, GraduationCap } from 'lucide-react';
 
 export default function ProfilePage() {
