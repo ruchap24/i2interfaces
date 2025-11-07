@@ -1,14 +1,39 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
+import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
 import { useRouter } from 'next/navigation';
 import { useAuthStore } from '@/store/authStore';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Users, Briefcase, Award } from 'lucide-react';
+import Image from "next/image";
+import {
+  ArrowRight,
+  Search,
+  MapPin,
+  BookOpen,
+  Menu, X, User, LogOut, Settings,
+  Shield,
+  Star,
+  Users,
+  Zap,
+  CheckCircle,
+  TrendingUp,
+  Globe,
+  Clock,
+} from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
-export default function HomePage() {
-  const router = useRouter();
+
+export default function Home() {
+
+  const stats = [
+    { number: "10,000+", label: "Questions Answered", icon: BookOpen },
+    { number: "500+", label: "Cities Covered", icon: Globe },
+    { number: "98%", label: "User Satisfaction", icon: Star },
+    { number: "24/7", label: "Available", icon: Clock },
+  ];
+
+
+   const router = useRouter();
   const user = useAuthStore((state) => state.user);
 
   useEffect(() => {
@@ -18,57 +43,96 @@ export default function HomePage() {
   }, [user, router]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      <div className="max-w-6xl mx-auto px-4 py-16">
-        <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">
-            Welcome to Professional Network
-          </h1>
-          <p className="text-xl text-gray-600 mb-8">
-            Build your professional profile and connect with others
-          </p>
-          <div className="flex gap-4 justify-center">
-            <Button size="lg" onClick={() => router.push('/signup')}>
-              Get Started
-            </Button>
-            <Button size="lg" variant="outline" onClick={() => router.push('/login')}>
-              Login
-            </Button>
+    <div className="flex flex-col w-full">
+
+      <section className="relative min-h-screen w-full overflow-hidden">
+        <div className="absolute inset-0 z-0">
+         
+          <div className="absolute inset-0 dark:hidden block">
+            <Image
+              src="/light1.jpeg"
+              alt="Light theme background"
+              fill
+              className="object-cover object-center"
+              priority
+              quality={100}
+              sizes="100vw"
+            />
+          </div>
+
+          <div className="absolute inset-0 bg-background/60 dark:bg-background/70" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10" />
+        </div>
+
+        {/* Hero Content */}
+        <div className="relative z-10 min-h-screen flex items-center">
+          <div className="container mx-auto px-4 sm:px-6 md:px-8 py-16 w-full">
+            <div className="max-w-4xl mx-auto text-center space-y-8">
+              {/* Main Heading */}
+              <div className="space-y-6">
+                <motion.h1
+                  className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <span className="block">Build Your Professional Profile &</span>
+                  <span className="block bg-gradient-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent">
+                  Connect With Others
+                  </span>
+                </motion.h1>
+
+                <motion.p
+                  className="mx-auto max-w-[600px] text-muted-foreground text-lg md:text-xl leading-relaxed"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2, duration: 0.6 }}
+                >
+                  Not another social network. It's a professional network to
+                  showcase your experience, skills, and achievements.
+                </motion.p>
+              </div>
+
+              {/* CTA Buttons */}
+              <motion.div
+                className="flex flex-col sm:flex-row gap-4 justify-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+              >
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Button
+                    size="lg"
+                    className="min-w-[200px] h-12 group shadow-lg" onClick={() => router.push('/signup')}
+                  >
+                      Get Started
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Button
+                    variant="outline"
+                    size="lg"
+                   
+                    className="min-w-[200px] h-12 bg-background/60 backdrop-blur-sm border-primary/20" onClick={() => router.push('/login')}
+                  >
+                    Login
+                  </Button>
+                </motion.div>
+              </motion.div>
+
+              
+            </div>
           </div>
         </div>
+      </section>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          <Card>
-            <CardContent className="pt-6 text-center">
-              <Users className="h-12 w-12 mx-auto mb-4 text-blue-600" />
-              <h3 className="font-bold text-lg mb-2">Build Your Network</h3>
-              <p className="text-gray-600">
-                Connect with professionals and expand your network
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="pt-6 text-center">
-              <Briefcase className="h-12 w-12 mx-auto mb-4 text-blue-600" />
-              <h3 className="font-bold text-lg mb-2">Showcase Experience</h3>
-              <p className="text-gray-600">
-                Highlight your work experience and achievements
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="pt-6 text-center">
-              <Award className="h-12 w-12 mx-auto mb-4 text-blue-600" />
-              <h3 className="font-bold text-lg mb-2">Display Skills</h3>
-              <p className="text-gray-600">
-                Show off your skills and expertise to the world
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
     </div>
   );
 }
