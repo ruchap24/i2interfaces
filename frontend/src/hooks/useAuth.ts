@@ -12,21 +12,17 @@ export function useAuth(redirectToLogin = true) {
   const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
-    // Mark as hydrated after first render
     setIsHydrated(true);
   }, []);
 
   useEffect(() => {
     const checkAuth = async () => {
       if (!isHydrated) return;
-
-      // If we have a token but no user, verify the token
       if (token && !user) {
         try {
           const response = await authAPI.getMe();
           setAuth(response.data.user, token);
         } catch (error) {
-          // Token is invalid, clear it
           logout();
           if (redirectToLogin) {
             router.push('/login');

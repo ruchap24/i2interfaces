@@ -64,11 +64,9 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10" />
         </div>
 
-        {/* Hero Content */}
         <div className="relative z-10 min-h-screen flex items-center">
           <div className="container mx-auto px-4 sm:px-6 md:px-8 py-16 w-full">
             <div className="max-w-4xl mx-auto text-center space-y-8">
-              {/* Main Heading */}
               <div className="space-y-6">
                 <motion.h1
                   className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl"
@@ -93,7 +91,6 @@ export default function Home() {
                 </motion.p>
               </div>
 
-              {/* CTA Buttons */}
               <motion.div
                 className="flex flex-col sm:flex-row gap-4 justify-center"
                 initial={{ opacity: 0, y: 20 }}
@@ -126,8 +123,6 @@ export default function Home() {
                   </Button>
                 </motion.div>
               </motion.div>
-
-              
             </div>
           </div>
         </div>
