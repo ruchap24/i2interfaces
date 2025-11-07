@@ -9,20 +9,24 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { MapPin } from 'lucide-react';
+import { useAuth } from '@/hooks/useAuth';
 
 export default function DashboardPage() {
   const router = useRouter();
-  const { user, logout } = useAuthStore();
+  const { logout } = useAuthStore();
+  const { user, isLoading } = useAuth();
   const [profiles, setProfiles] = useState<Profile[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (isLoading) return;
+    
     if (!user) {
       router.push('/login');
       return;
     }
     loadProfiles();
-  }, [user, router]);
+  }, [user, isLoading, router]);
 
   const loadProfiles = async () => {
     try {
@@ -40,7 +44,7 @@ export default function DashboardPage() {
     router.push('/login');
   };
 
-  if (loading) {
+  if (isLoading || loading) {
     return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
   }
 

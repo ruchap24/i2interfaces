@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
- import { useAuthStore } from '@/store/authStore';
+import { useAuthStore } from '@/store/authStore';
 import { profileAPI } from '@/services/api';
 import { Profile } from '@/types';
 import { Button } from '@/components/ui/button';
@@ -10,21 +10,25 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { MapPin, Briefcase, GraduationCap } from 'lucide-react';
+import { useAuth } from '@/hooks/useAuth';
 
 export default function ProfilePage() {
   const router = useRouter();
-  const { user, logout } = useAuthStore();
+  const { logout } = useAuthStore();
+  const { user, isLoading } = useAuth();
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (isLoading) return;
+    
     if (!user) {
       router.push('/login');
       return;
     }
 
     loadProfile();
-  }, [user, router]);
+  }, [user, isLoading, router]);
 
   const loadProfile = async () => {
     try {
@@ -42,7 +46,7 @@ export default function ProfilePage() {
     router.push('/login');
   };
 
-  if (loading) {
+  if (isLoading || loading) {
     return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
   }
 

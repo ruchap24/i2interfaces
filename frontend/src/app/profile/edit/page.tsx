@@ -12,10 +12,11 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from 'sonner';
 import { ArrowLeft, Plus, Trash2 } from 'lucide-react';
+import { useAuth } from '@/hooks/useAuth';
 
 export default function EditProfilePage() {
   const router = useRouter();
-  const { user } = useAuthStore();
+  const { user, isLoading } = useAuth();
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -29,12 +30,14 @@ export default function EditProfilePage() {
   });
 
   useEffect(() => {
+    if (isLoading) return;
+    
     if (!user) {
       router.push('/login');
       return;
     }
     loadProfile();
-  }, [user, router]);
+  }, [user, isLoading, router]);
 
   const loadProfile = async () => {
     try {
@@ -99,7 +102,7 @@ export default function EditProfilePage() {
   };
 
 
-  if (loading) {
+  if (isLoading || loading) {
     return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
   }
 
