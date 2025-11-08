@@ -53,7 +53,6 @@ export default function PublicProfilePage() {
       </header>
 
       <main className="max-w-4xl mx-auto p-4 space-y-4 mt-6">
-        {/* Same profile display as profile page, but without edit buttons */}
         <Card>
           <CardContent className="pt-6">
             <div className="flex flex-col md:flex-row gap-6">
@@ -78,8 +77,6 @@ export default function PublicProfilePage() {
             </div>
           </CardContent>
         </Card>
-
-        {/* About Section */}
         {profile.about && (
           <Card>
             <CardHeader>
@@ -90,8 +87,6 @@ export default function PublicProfilePage() {
             </CardContent>
           </Card>
         )}
-
-        {/* Experience Section */}
         {profile.experiences && profile.experiences.length > 0 && (
           <Card>
             <CardHeader>
@@ -129,8 +124,6 @@ export default function PublicProfilePage() {
             </CardContent>
           </Card>
         )}
-
-        {/* Education Section */}
         {profile.educations && profile.educations.length > 0 && (
           <Card>
             <CardHeader>
@@ -168,8 +161,6 @@ export default function PublicProfilePage() {
             </CardContent>
           </Card>
         )}
-
-        {/* Skills Section */}
         {profile.skills && profile.skills.length > 0 && (
           <Card>
             <CardHeader>

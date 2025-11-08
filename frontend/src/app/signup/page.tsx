@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { BorderBeam } from '@/components/magic-ui/border-beam';
 import { authAPI } from '@/services/api';
 import { useAuthStore } from '@/store/authStore';
 import { toast } from 'sonner';
@@ -43,7 +44,7 @@ export default function SignupPage() {
       
       setAuth(user, token);
       toast.success('Account created successfully!');
-      router.push('/profile');
+      router.push('/feed-preferences');
     } catch (error: any) {
       toast.error(error.response?.data?.message || 'Signup failed');
     } finally {
@@ -52,16 +53,17 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <CardTitle>Create Account</CardTitle>
-          <CardDescription>Sign up for your professional profile</CardDescription>
+    <div className="min-h-screen flex items-center justify-center bg-black p-4 relative z-10">
+      <Card className="w-full max-w-md bg-[#0a0a0a] border-blue-500/20 relative overflow-hidden">
+        <BorderBeam />
+        <CardHeader className="relative z-10">
+          <CardTitle className="text-white">Create Account</CardTitle>
+          <CardDescription className="text-gray-400">Sign up for your professional profile</CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>
-          <CardContent className="space-y-4">
+          <CardContent className="space-y-4 relative z-10">
             <div className="space-y-2">
-              <Label htmlFor="name">Full Name</Label>
+              <Label htmlFor="name" className="text-white">Full Name</Label>
               <Input
                 id="name"
                 type="text"
@@ -69,10 +71,11 @@ export default function SignupPage() {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 required
+                className="bg-[#1a1a1a] border-blue-500/20 text-white placeholder:text-gray-500"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email" className="text-white">Email</Label>
               <Input
                 id="email"
                 type="email"
@@ -80,10 +83,11 @@ export default function SignupPage() {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 required
+                className="bg-[#1a1a1a] border-blue-500/20 text-white placeholder:text-gray-500"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password" className="text-white">Password</Label>
               <Input
                 id="password"
                 type="password"
@@ -91,10 +95,11 @@ export default function SignupPage() {
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 required
+                className="bg-[#1a1a1a] border-blue-500/20 text-white placeholder:text-gray-500"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword">Confirm Password</Label>
+              <Label htmlFor="confirmPassword" className="text-white">Confirm Password</Label>
               <Input
                 id="confirmPassword"
                 type="password"
@@ -102,16 +107,21 @@ export default function SignupPage() {
                 value={formData.confirmPassword}
                 onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
                 required
+                className="bg-[#1a1a1a] border-blue-500/20 text-white placeholder:text-gray-500"
               />
             </div>
           </CardContent>
-          <CardFooter className="flex flex-col space-y-4">
-            <Button type="submit" className="w-full" disabled={loading}>
+          <CardFooter className="flex flex-col space-y-4 relative z-10">
+            <Button 
+              type="submit" 
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white" 
+              disabled={loading}
+            >
               {loading ? 'Creating Account...' : 'Sign Up'}
             </Button>
-            <p className="text-sm text-center text-gray-600">
+            <p className="text-sm text-center text-gray-400">
               Already have an account?{' '}
-              <Link href="/login" className="text-blue-600 hover:underline">
+              <Link href="/login" className="text-blue-400 hover:text-blue-300 hover:underline">
                 Log in
               </Link>
             </p>
