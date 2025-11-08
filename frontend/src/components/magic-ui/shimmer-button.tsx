@@ -33,7 +33,7 @@ export function ShimmerButton({
         } as React.CSSProperties
       }
       className={cn(
-        "group/button relative z-10 flex cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap border border-blue-500/50 px-6 py-3 text-blue-400 transition-all duration-300 hover:border-blue-400 hover:text-blue-300 [background:var(--background)] [border-radius:var(--radius)]",
+        "group/button relative z-10 flex cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap border border-blue-500/50 px-6 py-3 text-purple-400 transition-all duration-300 hover:border-blue-400 hover:text-blue-300 [background:var(--background)] [border-radius:var(--radius)]",
         "shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.5)]",
         className
       )}

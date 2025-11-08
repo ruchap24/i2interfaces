@@ -12,6 +12,7 @@ import { Zap, Users, Shield, Globe, TrendingUp, Code, Building2, Link2, Play } f
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { Particles } from "@/components/ui/particles"
 
 export default function Home() {
   const router = useRouter();
@@ -22,18 +23,7 @@ export default function Home() {
     if (user) {
       router.push('/home');
     }
-    
-    // Generate random stars
-    const starArray = Array.from({ length: 100 }, (_, i) => ({
-      id: i,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      size: Math.random() * 2 + 1,
-      delay: Math.random() * 3,
-    }));
-    setStars(starArray);
   }, [user, router]);
-
 
   const MagicBean = dynamic(() => import("@/components/ui/magic").then(m => ({ default: m.MagicBean })), {
     ssr: false,
@@ -54,26 +44,9 @@ export default function Home() {
   ];
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-black via-blue-950 to-black">
+    <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-blue via-black-950 to-black">
       <SmoothCursor />
       
-      {/* Twinkling Stars Background */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        {stars.map((star) => (
-          <div
-            key={star.id}
-            className="star absolute"
-            style={{
-              left: `${star.x}%`,
-              top: `${star.y}%`,
-              width: `${star.size}px`,
-              height: `${star.size}px`,
-              animationDelay: `${star.delay}s`,
-            }}
-          />
-        ))}
-      </div>
-
       <nav className="relative z-50 w-full px-4 sm:px-6 md:px-8 py-6">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -99,24 +72,28 @@ export default function Home() {
         </div>
       </nav>
 
-      <section className="relative min-h-[calc(100vh-80px)] flex items-center justify-center px-4 sm:px-6 md:px-8 z-10">
+      {/* <section className="relative min-h-[calc(100vh-80px)] flex items-center justify-center px-4 sm:px-6 md:px-8 z-10">
 
-        <div className="relative z-10 max-w-6xl mx-auto text-center space-y-8">
+      </section> */}
+
+      <section className="relative z-10 py-20 px-4 sm:px-6 md:px-8">
+      <div className="relative z-10 max-w-6xl mx-auto text-center space-y-8">
+        
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
-            <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+            <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
               <span className="block text-white">Build Your Professional</span>
               <span className="block bg-gradient-to-r from-pink-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">
                 Profile & Connect
               </span>
             </h1>
-            <p className="mx-auto max-w-[700px] text-white/80 text-base sm:text-lg md:text-xl leading-relaxed">
-              Not another social network. It's a professional network to showcase your experience, 
-              skills, and achievements. Connect with like-minded professionals.
+            <p className="mx-auto max-w-[700px] text-white/80 text-base sm:text-lg md:text-lg leading-relaxed">
+              A professional network to showcase your experience, 
+              skills, and achievements.
             </p>
           </motion.div>
 
@@ -128,26 +105,14 @@ export default function Home() {
           >
             <ShimmerButton 
               onClick={() => router.push('/signup')}
-              className="min-w-[200px]"
+              className="min-w-[200px] m-b-2"
             >
-              Get started - Free forever
+              Get started
             </ShimmerButton>
-            
-            <Link
-              href="/login"
-              className="text-blue-400 hover:text-blue-300 text-sm transition-colors"
-            >
-              Or try our web version
-            </Link>
 
-           
           </motion.div>
         </div>
-      </section>
-
-      {/* Bottom App Preview Section */}
-      <section className="relative z-10 py-20 px-4 sm:px-6 md:px-8">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto pt-10">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -155,6 +120,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
+
             {/* Glow Effect Around Image */}
             <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-blue-500/20 to-purple-500/20 blur-3xl rounded-3xl -z-10" />
             <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 via-blue-400/10 to-purple-400/10 blur-2xl rounded-3xl -z-20" />
