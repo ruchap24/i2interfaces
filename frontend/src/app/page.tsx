@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import { useAuthStore } from '@/store/authStore';
 import { motion } from "framer-motion";
 import { ShimmerButton } from "@/components/magic-ui/shimmer-button";
-import { SmoothCursor } from "@/components/magic-ui/smooth-cursor";
 import { Marquee } from "@/components/magic-ui/marque";
 import { GeminiEffect } from "@/components/aceternity-ui/gemini-effect";
 import { Zap, Users, Shield, Globe, TrendingUp, Code, Building2, Link2, Play } from "lucide-react";
@@ -24,7 +23,7 @@ export default function Home() {
       router.push('/home');
     }
   }, [user, router]);
-
+  
   const FeaturesLazy = dynamic(() => import("@/components/ui/feature"), {
     ssr: false,
     loading: () => null,
@@ -41,7 +40,7 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-blue via-black-950 to-black">
-      <SmoothCursor />
+    
       
       <nav className="relative z-50 w-full px-4 sm:px-6 md:px-8 py-6">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -70,7 +69,7 @@ export default function Home() {
         </div>
       </nav>
 
-      <section className="relative z-10 py-20 px-4 sm:px-6 md:px-8">
+      <section className="relative z-10 py-24 px-6 sm:px-6 md:px-8">
       <div className="relative z-10 max-w-6xl mx-auto text-center space-y-8">
         
           <motion.div
@@ -79,7 +78,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
-            <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
+            <h1 className="text-4xl sm:text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight leading-tight">
               <span className="block text-white">Build Your Professional</span>
               <span className="block bg-gradient-to-r from-purple-400 via-blue-500 to-blue-500 bg-clip-text text-transparent">
                 Profile & Connect
@@ -119,18 +118,19 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 via-blue-400/10 to-purple-400/10 blur-2xl rounded-3xl -z-20" />
           
       <div className="relative bg-black overflow-hidden p-4 sm:p-6 lg:p-8">
-        <div className="absolute top-0 left-0 w-12 h-12 sm:w-16 sm:h-16 lg:w-24 lg:h-24 border-t-2 border-l-2 border-[#2059f5] rounded-tl-lg"></div>
-  
-        <div className="absolute top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 lg:w-24 lg:h-24 border-t-2 border-r-2 border-[#2059f5] rounded-tr-lg"></div>
-  
-        <div
-          className="bg-cover bg-center rounded-lg w-full h-64 sm:h-80 lg:h-[500px] flex items-center justify-center text-white text-xl sm:text-2xl lg:text-3xl font-bold"
-          style={{
-            backgroundImage: 'url("/dummyimg.png")',
-          }}
-        >
-        </div>
-      </div>
+  <div className="absolute top-0 left-0 w-12 h-12 sm:w-16 sm:h-16 lg:w-24 lg:h-24 border-t-2 border-l-2 border-[#2059f5] rounded-tl-lg"></div>
+
+  <div className="absolute top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 lg:w-24 lg:h-24 border-t-2 border-r-2 border-[#2059f5] rounded-tr-lg"></div>
+
+  <div
+    className="bg-cover bg-center rounded-lg w-full h-80 sm:h-[500px] lg:h-[700px] flex items-center justify-center text-white text-xl sm:text-2xl lg:text-3xl font-bold"
+    style={{
+      backgroundImage: 'url("/home.png")',
+    }}
+  >
+  </div>
+</div>
+
  
           </motion.div>
         </div>
@@ -210,7 +210,7 @@ export default function Home() {
       </section> */}
       <div className="bg-black py-8 md:py-16 flex items-center justify-center overflow-hidden">
       <h1
-        className="text-[clamp(2.25rem,18vw,20rem)] text-white uppercase tracking-[0.06em] leading-none select-none animate-pulse text-center whitespace-nowrap max-w-full"
+        className="text-[clamp(3rem,10vw,12rem)] text-white uppercase tracking-[0.06em] leading-none select-none animate-pulse text-center whitespace-nowrap break-words px-4 max-w-[90vw]"
         style={{ fontFamily: 'Impact, "Arial Black", "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Bold", sans-serif', fontWeight: 900, fontStretch: 'condensed' }}
       >
         i2interfaces

@@ -15,6 +15,13 @@ import { toast } from 'sonner';
 export default function LoginPage() {
   const router = useRouter();
   const setAuth = useAuthStore((state) => state.setAuth);
+
+  const handleDefaultLogin = () => {
+    setFormData({
+      email: 'patilrucha991@gmail.com',
+      password: 'rucha25'
+    });
+  };
   
   const [formData, setFormData] = useState({
     email: '',
@@ -46,6 +53,14 @@ export default function LoginPage() {
           <CardHeader className="relative z-10 bg-blue-500/20 p-6 text-center">
           <CardTitle className="text-white">Welcome Back</CardTitle>
           <CardDescription className="text-gray-400">Login to your professional profile</CardDescription>
+          <Button
+            type="button"
+            variant="ghost"
+            className="mt-2 text-sm text-blue-400 hover:text-blue-300"
+            onClick={handleDefaultLogin}
+          >
+            Use Demo Account
+          </Button>
         </CardHeader>
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-4 relative z-10">

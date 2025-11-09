@@ -6,8 +6,8 @@ import { Toaster } from 'sonner';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Professional Profile',
-  description: 'LinkedIn-style professional profile application',
+  title: 'i2interfaces',
+  description: 'professional profile application',
 };
 
 export default function RootLayout({
@@ -25,3 +25,4 @@ export default function RootLayout({
     </html>
   );
 }
+

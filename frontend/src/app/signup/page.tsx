@@ -16,6 +16,10 @@ export default function SignupPage() {
   const router = useRouter();
   const setAuth = useAuthStore((state) => state.setAuth);
 
+   const handleDemoLogin = () => {
+    router.push('/login?demo=true');
+  };
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -59,6 +63,14 @@ export default function SignupPage() {
         <CardHeader className="relative z-10 bg-blue-500/20 p-6 text-center">
           <CardTitle className="text-white">Create Account</CardTitle>
           <CardDescription className="text-gray-400">Sign up for your professional profile</CardDescription>
+          <Button
+            type="button"
+            variant="ghost"
+            className="mt-2 text-sm text-blue-400 hover:text-blue-300"
+            onClick={handleDemoLogin}
+          >
+            Use Demo Account
+          </Button>
         </CardHeader>
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-4 relative z-10">
