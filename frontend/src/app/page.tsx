@@ -12,7 +12,7 @@ import { Zap, Users, Shield, Globe, TrendingUp, Code, Building2, Link2, Play } f
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { Particles } from "@/components/ui/particles"
+import Footer from "@/components/footer";
 
 export default function Home() {
   const router = useRouter();
@@ -25,10 +25,6 @@ export default function Home() {
     }
   }, [user, router]);
 
-  const MagicBean = dynamic(() => import("@/components/ui/magic").then(m => ({ default: m.MagicBean })), {
-    ssr: false,
-    loading: () => null,
-  });
   const FeaturesLazy = dynamic(() => import("@/components/ui/feature"), {
     ssr: false,
     loading: () => null,
@@ -53,7 +49,7 @@ export default function Home() {
             <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
               <span className="text-white font-bold text-lg">∞</span>
             </div>
-            <span className="text-white text-xl font-semibold">i2inter</span>
+            <span className="text-white text-xl font-semibold">I2Interfaces</span>
           </div>
           <div className="flex items-center gap-4">
             <Link
@@ -62,19 +58,17 @@ export default function Home() {
             >
               Log in
             </Link>
-            <Link
-              href="/signup"
-              className="px-4 py-2 rounded-lg border border-white/20 text-white hover:bg-white/10 transition-all text-sm font-medium"
-            >
+            
+            <ShimmerButton 
+              onClick={() => router.push('/signup')}
+              className="px-4 py-2 m-b-2"
+              >
               Sign up
-            </Link>
+            </ShimmerButton>
+           
           </div>
         </div>
       </nav>
-
-      {/* <section className="relative min-h-[calc(100vh-80px)] flex items-center justify-center px-4 sm:px-6 md:px-8 z-10">
-
-      </section> */}
 
       <section className="relative z-10 py-20 px-4 sm:px-6 md:px-8">
       <div className="relative z-10 max-w-6xl mx-auto text-center space-y-8">
@@ -87,7 +81,7 @@ export default function Home() {
           >
             <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
               <span className="block text-white">Build Your Professional</span>
-              <span className="block bg-gradient-to-r from-pink-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-purple-400 via-blue-500 to-blue-500 bg-clip-text text-transparent">
                 Profile & Connect
               </span>
             </h1>
@@ -121,41 +115,23 @@ export default function Home() {
             className="relative"
           >
 
-            {/* Glow Effect Around Image */}
             <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-blue-500/20 to-purple-500/20 blur-3xl rounded-3xl -z-10" />
             <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 via-blue-400/10 to-purple-400/10 blur-2xl rounded-3xl -z-20" />
-            
-            {/* App Preview Image */}
-            <div className="relative rounded-2xl overflow-hidden border border-purple-500/30 shadow-2xl shadow-purple-500/20">
-              <div className="aspect-video bg-gradient-to-br from-[#0a0a0a] to-[#1a1a1a] relative">
-                {/* CSS-based App Interface Preview - Replace with dummy.png image if available */}
-                <div className="absolute inset-0 p-8">
-                  <div className="h-full flex gap-6">
-                    {/* Sidebar */}
-                    <div className="w-48 space-y-4">
-                      <div className="h-8 bg-blue-500/20 rounded-lg" />
-                      <div className="space-y-2">
-                        {["My feed", "Network", "Jobs", "Messages", "Profile"].map((item, idx) => (
-                          <div key={idx} className="h-6 bg-white/5 rounded" />
-                        ))}
-                      </div>
-                    </div>
-                    <div className="flex-1 space-y-4">
-                      <div className="h-12 bg-white/5 rounded-lg" />
-                      <div className="grid grid-cols-2 gap-4">
-                        {[1, 2, 3, 4].map((idx) => (
-                          <div key={idx} className="h-32 bg-white/5 rounded-lg p-4 space-y-2">
-                            <div className="h-4 bg-white/10 rounded w-3/4" />
-                            <div className="h-3 bg-white/5 rounded w-full" />
-                            <div className="h-3 bg-white/5 rounded w-2/3" />
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          
+      <div className="relative bg-black overflow-hidden p-4 sm:p-6 lg:p-8">
+        <div className="absolute top-0 left-0 w-12 h-12 sm:w-16 sm:h-16 lg:w-24 lg:h-24 border-t-2 border-l-2 border-[#2059f5] rounded-tl-lg"></div>
+  
+        <div className="absolute top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 lg:w-24 lg:h-24 border-t-2 border-r-2 border-[#2059f5] rounded-tr-lg"></div>
+  
+        <div
+          className="bg-cover bg-center rounded-lg w-full h-64 sm:h-80 lg:h-[500px] flex items-center justify-center text-white text-xl sm:text-2xl lg:text-3xl font-bold"
+          style={{
+            backgroundImage: 'url("/dummyimg.png")',
+          }}
+        >
+        </div>
+      </div>
+ 
           </motion.div>
         </div>
       </section>
@@ -183,6 +159,34 @@ export default function Home() {
           </motion.div>
           
           <div className="relative overflow-hidden">
+            <Marquee pauseOnHover className="[--duration:25s]">
+              {testimonials.map((testimonial, idx) => (
+                <div
+                  key={idx}
+                  className="px-6 py-6 mx-2 rounded-lg bg-[#0a0a0a] border border-blue-500/20 hover:border-blue-500/40 transition-all min-w-[300px]"
+                >
+                  <p className="text-white mb-4 italic">"{testimonial.text}"</p>
+                  <div>
+                    <p className="text-blue-400 font-semibold">{testimonial.name}</p>
+                    <p className="text-gray-500 text-sm">{testimonial.role}</p>
+                  </div>
+                </div>
+              ))}
+            </Marquee>
+             <Marquee reverse pauseOnHover className="[--duration:25s]">
+              {testimonials.map((testimonial, idx) => (
+                <div
+                  key={idx}
+                  className="px-6 py-6 mx-2 rounded-lg bg-[#0a0a0a] border border-blue-500/20 hover:border-blue-500/40 transition-all min-w-[300px]"
+                >
+                  <p className="text-white mb-4 italic">"{testimonial.text}"</p>
+                  <div>
+                    <p className="text-blue-400 font-semibold">{testimonial.name}</p>
+                    <p className="text-gray-500 text-sm">{testimonial.role}</p>
+                  </div>
+                </div>
+              ))}
+            </Marquee>
             <Marquee pauseOnHover reverse className="[--duration:25s]">
               {testimonials.map((testimonial, idx) => (
                 <div
@@ -201,9 +205,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative py-20 z-10">
+      {/* <section className="relative py-5 ">
         <GeminiEffect />
-      </section>
+      </section> */}
+      <div className="bg-black py-8 md:py-16 flex items-center justify-center overflow-hidden">
+      <h1
+        className="text-[clamp(2.25rem,18vw,20rem)] text-white uppercase tracking-[0.06em] leading-none select-none animate-pulse text-center whitespace-nowrap max-w-full"
+        style={{ fontFamily: 'Impact, "Arial Black", "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Bold", sans-serif', fontWeight: 900, fontStretch: 'condensed' }}
+      >
+        i2interfaces
+      </h1>
+    </div>
+        <Footer />
     </div>
   );
 }

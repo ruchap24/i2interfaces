@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
+
 
 @custom-variant dark (&:is(.dark *));
 
@@ -118,10 +121,10 @@
   }
   body {
     @apply bg-black text-white;
+    font-family: 'Schibsted Grotesk', 'Bricolage Grotesque', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   }
 }
 
-/* UI Grid Background */
 .ui-grid {
   background-image: 
     linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
@@ -136,7 +139,6 @@
   pointer-events: none;
 }
 
-/* Shimmer Button Animations */
 @keyframes shimmer-slide {
   to {
     translate: calc(100cqw - 100%) 0;
@@ -168,7 +170,6 @@
   animation: spin-around calc(var(--shimmer-duration, 3s) * 2) linear infinite;
 }
 
-/* Marquee Animations */
 @keyframes marquee {
   from {
     transform: translateX(0);
@@ -195,7 +196,6 @@
   animation: marquee-vertical var(--duration) linear infinite;
 }
 
-/* Border Beam Animation */
 @keyframes border-beam {
   100% {
     offset-distance: 100%;
@@ -206,7 +206,6 @@
   animation: border-beam var(--duration, 15s) linear infinite;
 }
 
-/* Twinkling Stars Animation */
 @keyframes twinkle {
   0%, 100% {
     opacity: 0.3;

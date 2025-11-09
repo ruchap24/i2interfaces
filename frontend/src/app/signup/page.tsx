@@ -55,8 +55,8 @@ export default function SignupPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-black p-4 relative z-10">
       <Card className="w-full max-w-md bg-[#0a0a0a] border-blue-500/20 relative overflow-hidden">
-        <BorderBeam />
-        <CardHeader className="relative z-10">
+    
+        <CardHeader className="relative z-10 bg-blue-500/20 p-6 text-center">
           <CardTitle className="text-white">Create Account</CardTitle>
           <CardDescription className="text-gray-400">Sign up for your professional profile</CardDescription>
         </CardHeader>
