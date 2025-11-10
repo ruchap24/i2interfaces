@@ -33,6 +33,11 @@ export function Navbar() {
     { icon: Briefcase, label: 'Jobs', path: '/jobs' },
     { icon: MessageSquare, label: 'Messages', path: '/messages' },
     { icon: Bell, label: 'Notifications', path: '/notifications' },
+    {  icon: Bell, 
+    label: 'Notifications', 
+    path: '/notifications',
+    action: () => setShowNotifications(prev => !prev)
+  },
   ];
 
   const handleSalaryInsights = () => {
