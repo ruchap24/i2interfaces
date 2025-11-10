@@ -33,11 +33,6 @@ export function Navbar() {
     { icon: Briefcase, label: 'Jobs', path: '/jobs' },
     { icon: MessageSquare, label: 'Messages', path: '/messages' },
     { icon: Bell, label: 'Notifications', path: '/notifications' },
-    {  icon: Bell, 
-    label: 'Notifications', 
-    path: '/notifications',
-    action: () => setShowNotifications(prev => !prev)
-  },
   ];
 
   const handleSalaryInsights = () => {
@@ -70,7 +65,7 @@ export function Navbar() {
               return (
                 <button
                   key={item.label}
-                  onClick={() => handleNavClick(item.path, item.action)}
+                  onClick={() => handleNavClick(item.path, )}
                   className={cn(
                     "flex items-center gap-2 px-2 lg:px-3 py-2 rounded-lg transition-all text-sm",
                     isActive
@@ -122,7 +117,7 @@ export function Navbar() {
               return (
                 <button
                   key={item.label}
-                  onClick={() => handleNavClick(item.path, item.action)}
+                  onClick={() => handleNavClick(item.path)}
                   className={cn(
                     "w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all",
                     isActive
