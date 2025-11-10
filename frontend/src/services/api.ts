@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useAuthStore } from '../store/authStore';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://backend-production-2ee7e.up.railway.app/';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://backend-tee5.onrender.com/';
 
 export const api = axios.create({
   baseURL: API_URL,
