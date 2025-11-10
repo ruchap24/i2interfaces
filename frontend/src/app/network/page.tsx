@@ -34,33 +34,33 @@ export default function NetworkPage() {
     <div className="min-h-screen bg-black relative z-10">
       <Navbar />
       
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white mb-2">My Network</h1>
-          <p className="text-gray-400">Discover and connect with professionals</p>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
+        <div className="mb-6 sm:mb-8">
+          <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">My Network</h1>
+          <p className="text-gray-400 text-sm sm:text-base">Discover and connect with professionals</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {dummyConnections.map((person) => (
             <Card key={person.id} className="bg-[#0a0a0a] border-blue-500/20 hover:border-blue-500/40 transition-all">
-              <CardContent className="pt-6">
+              <CardContent className="pt-4 sm:pt-6">
                 <div className="flex flex-col items-center text-center">
-                  <Avatar className="h-20 w-20 mb-4">
+                  <Avatar className="h-16 w-16 sm:h-20 sm:w-20 mb-3 sm:mb-4">
                     <AvatarImage src={person.avatar} />
-                    <AvatarFallback className="bg-blue-500/20 text-blue-400 text-2xl">
+                    <AvatarFallback className="bg-blue-500/20 text-blue-400 text-xl sm:text-2xl">
                       {person.name.charAt(0)}
                     </AvatarFallback>
                   </Avatar>
-                  <h3 className="font-semibold text-white text-lg mb-1">{person.name}</h3>
-                  <p className="text-blue-400 text-sm mb-2">{person.role}</p>
-                  <div className="flex items-center gap-1 text-gray-500 text-sm mb-3">
+                  <h3 className="font-semibold text-white text-base sm:text-lg mb-1">{person.name}</h3>
+                  <p className="text-blue-400 text-xs sm:text-sm mb-2 line-clamp-1">{person.role}</p>
+                  <div className="flex items-center gap-1 text-gray-500 text-xs sm:text-sm mb-2 sm:mb-3">
                     <MapPin className="h-3 w-3" />
-                    <span>{person.location}</span>
+                    <span className="truncate">{person.location}</span>
                   </div>
-                  <p className="text-gray-400 text-xs mb-4">
+                  <p className="text-gray-400 text-xs mb-3 sm:mb-4">
                     {person.mutual} mutual connections
                   </p>
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm">
                     <UserPlus className="h-4 w-4 mr-2" />
                     Connect
                   </Button>

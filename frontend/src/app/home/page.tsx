@@ -190,9 +190,9 @@ export default function HomePage() {
     <div className="min-h-screen bg-black relative z-10">
       <Navbar />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          <aside className="lg:col-span-3 space-y-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
+          <aside className="hidden lg:block lg:col-span-3 space-y-4 sm:space-y-6">
             <Card className="bg-gradient-to-br from-gray-900 to-gray-800 border-blue-500/20 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300">
               <CardContent className="pt-6">
                 <div
@@ -251,24 +251,24 @@ export default function HomePage() {
             </Card>
           </aside>
 
-          <main className="lg:col-span-6 space-y-6">
+          <main className="lg:col-span-6 space-y-4 sm:space-y-6">
             <Card className="bg-[#0a0a0a] border-blue-500/20">
-              <CardContent className="pt-6">
-                <div className="flex gap-3">
-                  <Avatar className="h-10 w-10">
+              <CardContent className="pt-4 sm:pt-6">
+                <div className="flex gap-2 sm:gap-3">
+                  <Avatar className="h-8 w-8 sm:h-10 sm:w-10 flex-shrink-0">
                     <AvatarImage src={profile?.photoUrl || ""} />
-                    <AvatarFallback className="bg-blue-500/20 text-blue-400">
+                    <AvatarFallback className="bg-blue-500/20 text-blue-400 text-sm sm:text-base">
                       {profile?.name?.charAt(0) || user?.name?.charAt(0) || "U"}
                     </AvatarFallback>
                   </Avatar>
-                  <div className="flex-1">
+                  <div className="flex-1 min-w-0">
                     <textarea
                       placeholder="What's on your mind?"
-                      className="w-full bg-[#1a1a1a] border border-blue-500/20 rounded-lg p-3 text-white placeholder:text-gray-500 resize-none focus:outline-none focus:border-blue-500/40"
+                      className="w-full bg-[#1a1a1a] border border-blue-500/20 rounded-lg p-2 sm:p-3 text-white placeholder:text-gray-500 resize-none focus:outline-none focus:border-blue-500/40 text-sm sm:text-base"
                       rows={3}
                     />
-                    <div className="flex justify-end mt-3">
-                      <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+                    <div className="flex justify-end mt-2 sm:mt-3">
+                      <Button className="bg-blue-600 hover:bg-blue-700 text-white text-sm px-3 sm:px-4">
                         Post
                       </Button>
                     </div>
@@ -277,23 +277,23 @@ export default function HomePage() {
               </CardContent>
             </Card>
 
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {dummyPosts.map((post) => (
                 <Card key={post.id} className="bg-gradient-to-br from-gray-900 to-gray-800 border-blue-500/20 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300">
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <Avatar className="h-12 w-12 ring-2 ring-blue-500/20">
+                  <CardContent className="p-4 sm:p-6">
+                    <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                      <Avatar className="h-10 w-10 sm:h-12 sm:w-12 ring-2 ring-blue-500/20 flex-shrink-0">
                         <AvatarImage src={post.avatar} />
-                        <AvatarFallback>{post.author[0]}</AvatarFallback>
+                        <AvatarFallback className="text-xs sm:text-sm">{post.author[0]}</AvatarFallback>
                       </Avatar>
-                      <div>
-                        <p className="font-semibold text-white">{post.author}</p>
-                        <p className="text-sm text-gray-400">
+                      <div className="min-w-0 flex-1">
+                        <p className="font-semibold text-white text-sm sm:text-base truncate">{post.author}</p>
+                        <p className="text-xs sm:text-sm text-gray-400 truncate">
                           @{post.username} · {post.timestamp}
                         </p>
                       </div>
                     </div>
-                    <p className="text-white mb-4">{post.content}</p>
+                    <p className="text-white mb-3 sm:mb-4 text-sm sm:text-base break-words">{post.content}</p>
                    
                   </CardContent>
                 </Card>
@@ -301,7 +301,7 @@ export default function HomePage() {
             </div>
           </main>
 
-          <aside className="lg:col-span-3 space-y-6">
+          <aside className="hidden lg:block lg:col-span-3 space-y-4 sm:space-y-6">
             <Card className="bg-gradient-to-br from-gray-900 to-gray-800 border-blue-500/20 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300">
               <CardHeader>
                 <CardTitle className="text-white text-lg">Recommended People</CardTitle>

@@ -81,13 +81,13 @@ export default function NotificationsPage() {
     <div className="min-h-screen bg-black relative z-10">
       <Navbar />
       
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white mb-2">Notifications</h1>
-          <p className="text-gray-400">Stay updated with your network activity</p>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
+        <div className="mb-6 sm:mb-8">
+          <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">Notifications</h1>
+          <p className="text-gray-400 text-sm sm:text-base">Stay updated with your network activity</p>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-2 sm:space-y-3">
           {dummyNotifications.map((notification) => {
             const Icon = notification.icon;
             return (
@@ -95,25 +95,25 @@ export default function NotificationsPage() {
                 key={notification.id}
                 className="bg-[#0a0a0a] border-blue-500/20 hover:border-blue-500/40 transition-all"
               >
-                <CardContent className="pt-6">
-                  <div className="flex items-start gap-4">
-                    <div className="p-2 rounded-full bg-blue-500/20">
-                      <Icon className="h-5 w-5 text-blue-400" />
+                <CardContent className="pt-4 sm:pt-6">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="p-2 rounded-full bg-blue-500/20 flex-shrink-0">
+                      <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-blue-400" />
                     </div>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-1">
-                        <Avatar className="h-8 w-8">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-1 flex-wrap">
+                        <Avatar className="h-7 w-7 sm:h-8 sm:w-8 flex-shrink-0">
                           <AvatarImage src={notification.avatar} />
                           <AvatarFallback className="bg-blue-500/20 text-blue-400 text-xs">
                             {notification.user.charAt(0)}
                           </AvatarFallback>
                         </Avatar>
-                        <p className="text-white">
+                        <p className="text-white text-sm sm:text-base break-words">
                           <span className="font-semibold">{notification.user}</span>{" "}
                           <span className="text-gray-400">{notification.action}</span>
                         </p>
                       </div>
-                      <p className="text-gray-500 text-sm">{notification.time}</p>
+                      <p className="text-gray-500 text-xs sm:text-sm">{notification.time}</p>
                     </div>
                   </div>
                 </CardContent>

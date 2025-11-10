@@ -83,15 +83,15 @@ export default function SalaryInsightsPage() {
     <div className="min-h-screen bg-black relative z-10">
       <Navbar />
       
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white mb-2">Salary Insights</h1>
-          <p className="text-gray-400">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
+        <div className="mb-6 sm:mb-8">
+          <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">Salary Insights</h1>
+          <p className="text-gray-400 text-sm sm:text-base">
             Compare salaries across different roles and locations (Unique feature inspired by Naukri/Peerlist)
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {salaryData.map((data, idx) => (
             <motion.div
               key={idx}
@@ -100,28 +100,28 @@ export default function SalaryInsightsPage() {
               transition={{ delay: idx * 0.1 }}
             >
               <Card className="bg-[#0a0a0a] border-blue-500/20 hover:border-blue-500/40 transition-all">
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <CardTitle className="text-white text-lg mb-1">{data.role}</CardTitle>
-                      <div className="flex items-center gap-1 text-gray-400 text-sm">
-                        <MapPin className="h-3 w-3" />
-                        <span>{data.location}</span>
+                <CardHeader className="pb-3 sm:pb-4">
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="flex-1 min-w-0">
+                      <CardTitle className="text-white text-base sm:text-lg mb-1 truncate">{data.role}</CardTitle>
+                      <div className="flex items-center gap-1 text-gray-400 text-xs sm:text-sm">
+                        <MapPin className="h-3 w-3 flex-shrink-0" />
+                        <span className="truncate">{data.location}</span>
                       </div>
                     </div>
-                    <div className="flex items-center gap-1 text-green-400 text-sm font-semibold">
-                      <TrendingUp className="h-4 w-4" />
+                    <div className="flex items-center gap-1 text-green-400 text-xs sm:text-sm font-semibold flex-shrink-0">
+                      <TrendingUp className="h-3 w-3 sm:h-4 sm:w-4" />
                       <span>{data.trend}</span>
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-3">
+                  <div className="space-y-2 sm:space-y-3">
                     <div>
                       <p className="text-gray-500 text-xs mb-1">Average Salary</p>
-                      <p className="text-2xl font-bold text-blue-400">{formatSalary(data.avg)}</p>
+                      <p className="text-xl sm:text-2xl font-bold text-blue-400">{formatSalary(data.avg)}</p>
                     </div>
-                    <div className="flex justify-between text-sm">
+                    <div className="flex justify-between text-xs sm:text-sm">
                       <div>
                         <p className="text-gray-500 text-xs">Min</p>
                         <p className="text-gray-400">{formatSalary(data.min)}</p>

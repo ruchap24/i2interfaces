@@ -39,9 +39,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-blue via-black-950 to-black">
-    
-      
+    <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-[#0c0c2d] via-[#0a0a1f] to-black">
       <nav className="relative z-50 w-full px-4 sm:px-6 md:px-8 py-6">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -70,7 +68,10 @@ export default function Home() {
       </nav>
 
       <section className="relative z-10 py-24 px-6 sm:px-6 md:px-8">
-      <div className="relative z-10 max-w-6xl mx-auto text-center space-y-8">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent" />
+        
+        {/* Hero content */}
+        <div className="relative z-10 max-w-6xl mx-auto text-center space-y-8">
         
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -113,35 +114,32 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-blue-500/20 to-purple-500/20 blur-3xl rounded-3xl -z-10" />
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 via-blue-400/10 to-purple-400/10 blur-2xl rounded-3xl -z-20" />
-          
-      <div className="relative bg-black overflow-hidden p-4 sm:p-6 lg:p-8">
-  <div className="absolute top-0 left-0 w-12 h-12 sm:w-16 sm:h-16 lg:w-24 lg:h-24 border-t-2 border-l-2 border-[#2059f5] rounded-tl-lg"></div>
-
-  <div className="absolute top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 lg:w-24 lg:h-24 border-t-2 border-r-2 border-[#2059f5] rounded-tr-lg"></div>
-
-  <div
-    className="bg-cover bg-center rounded-lg w-full h-80 sm:h-[500px] lg:h-[700px] flex items-center justify-center text-white text-xl sm:text-2xl lg:text-3xl font-bold"
-    style={{
-      backgroundImage: 'url("/home.png")',
-    }}
-  >
-  </div>
-</div>
-
- 
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/30 via-blue-500/30 to-purple-500/30 blur-3xl rounded-3xl -z-10" />
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-400/20 via-blue-400/20 to-purple-400/20 blur-2xl rounded-3xl -z-20" />
+            <div className="relative bg-gradient-to-b from-black/80 to-black/40 backdrop-blur-sm overflow-hidden p-4 sm:p-6 lg:p-8 rounded-2xl">
+              <div className="absolute top-0 left-0 w-12 h-12 sm:w-16 sm:h-16 lg:w-24 lg:h-24 border-t-2 border-l-2 border-blue-500/50 rounded-tl-lg" />
+              <div className="absolute top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 lg:w-24 lg:h-24 border-t-2 border-r-2 border-blue-500/50 rounded-tr-lg" />
+              <div className="absolute bottom-0 left-0 w-12 h-12 sm:w-16 sm:h-16 lg:w-24 lg:h-24 border-b-2 border-l-2 border-blue-500/50 rounded-bl-lg" />
+              <div className="absolute bottom-0 right-0 w-12 h-12 sm:w-16 sm:h-16 lg:w-24 lg:h-24 border-b-2 border-r-2 border-blue-500/50 rounded-br-lg" />
+              <div className="relative rounded-xl overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 via-transparent to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60 z-10" />
+                <div
+                  className="bg-cover bg-center w-full h-80 sm:h-[500px] lg:h-[700px] flex items-center justify-center text-white text-xl sm:text-2xl lg:text-3xl font-bold transform transition-transform duration-700 hover:scale-105"
+                  style={{
+                    backgroundImage: 'url("/home.png")',
+                  }}
+                />
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
-
-     
-      <div>
-         <FeaturesLazy forceDarkMode={true} />
+      <div className="relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 via-purple-900/10 to-transparent animate-pulse" />
+        <FeaturesLazy forceDarkMode={true} />
       </div>
-    
-      <section className="relative py-20 z-10">
+      <section className="relative py-20 z-10 bg-gradient-to-b from-transparent via-blue-950/20 to-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -204,19 +202,16 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <div className="bg-gradient-to-b from-black via-blue-950/10 to-black py-8 md:py-16 flex items-center justify-center overflow-hidden">
+        <h1
+          className="text-[clamp(3rem,10vw,12rem)] text-white uppercase tracking-[0.06em] leading-none select-none animate-pulse text-center whitespace-nowrap break-words px-4 max-w-[90vw]"
+          style={{ fontFamily: 'Impact, "Arial Black", "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Bold", sans-serif', fontWeight: 900, fontStretch: 'condensed' }}
+        >
+          i2interfaces
+        </h1>
+      </div>
 
-      {/* <section className="relative py-5 ">
-        <GeminiEffect />
-      </section> */}
-      <div className="bg-black py-8 md:py-16 flex items-center justify-center overflow-hidden">
-      <h1
-        className="text-[clamp(3rem,10vw,12rem)] text-white uppercase tracking-[0.06em] leading-none select-none animate-pulse text-center whitespace-nowrap break-words px-4 max-w-[90vw]"
-        style={{ fontFamily: 'Impact, "Arial Black", "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Bold", sans-serif', fontWeight: 900, fontStretch: 'condensed' }}
-      >
-        i2interfaces
-      </h1>
-    </div>
-        <Footer />
+      <Footer />
     </div>
   );
 }

@@ -88,50 +88,53 @@ export default function JobsPage() {
     <div className="min-h-screen bg-black relative z-10">
       <Navbar />
       
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white mb-2">Job Opportunities</h1>
-          <p className="text-gray-400">Find your next career opportunity</p>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
+        <div className="mb-6 sm:mb-8">
+          <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">Job Opportunities</h1>
+          <p className="text-gray-400 text-sm sm:text-base">Find your next career opportunity</p>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {dummyJobs.map((job) => (
             <Card key={job.id} className="bg-[#0a0a0a] border-blue-500/20 hover:border-blue-500/40 transition-all">
-              <CardContent className="pt-6">
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+              <CardContent className="pt-4 sm:pt-6">
+                <div className="flex flex-col gap-4">
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-white mb-2">{job.title}</h3>
-                    <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400 mb-3">
+                    <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3">{job.title}</h3>
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 sm:gap-4 text-xs sm:text-sm text-gray-400 mb-3">
                       <div className="flex items-center gap-1">
-                        <Briefcase className="h-4 w-4" />
+                        <Briefcase className="h-3 w-3 sm:h-4 sm:w-4" />
                         <span>{job.company}</span>
                       </div>
                       <div className="flex items-center gap-1">
-                        <MapPin className="h-4 w-4" />
+                        <MapPin className="h-3 w-3 sm:h-4 sm:w-4" />
                         <span>{job.location}</span>
                       </div>
                       <div className="flex items-center gap-1">
-                        <DollarSign className="h-4 w-4" />
+                        <DollarSign className="h-3 w-3 sm:h-4 sm:w-4" />
                         <span>{job.salary}</span>
                       </div>
                       <div className="flex items-center gap-1">
-                        <Clock className="h-4 w-4" />
+                        <Clock className="h-3 w-3 sm:h-4 sm:w-4" />
                         <span>{job.posted}</span>
                       </div>
                     </div>
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-2 mb-3 sm:mb-4">
                       {job.skills.map((skill, idx) => (
-                        <Badge key={idx} variant="secondary" className="bg-blue-500/20 text-blue-400 border-blue-500/30">
+                        <Badge key={idx} variant="secondary" className="bg-blue-500/20 text-blue-400 border-blue-500/30 text-xs">
                           {skill}
                         </Badge>
                       ))}
                     </div>
                   </div>
-                  <div className="flex gap-2">
-                    <Button variant="outline" className="border-blue-500/20 text-blue-400 hover:bg-blue-500/10">
+                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-2">
+                    <Button 
+                      variant="outline" 
+                      className="border-blue-500/20 text-blue-400 hover:bg-blue-500/10 flex-1 sm:flex-initial text-sm"
+                    >
                       Save
                     </Button>
-                    <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+                    <Button className="bg-blue-600 hover:bg-blue-700 text-white flex-1 sm:flex-initial text-sm">
                       Apply
                     </Button>
                   </div>

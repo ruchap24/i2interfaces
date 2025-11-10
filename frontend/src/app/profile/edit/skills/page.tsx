@@ -37,42 +37,52 @@ export default function AddSkillsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white border-b sticky top-0 z-10">
-        <div className="max-w-2xl mx-auto px-4 py-4">
-          <Button variant="ghost" onClick={() => router.push('/profile/edit')}>
+    <div className="min-h-screen bg-black relative z-10">
+      <header className="bg-[#0a0a0a] border-b border-blue-500/20 sticky top-0 z-10">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
+          <Button 
+            variant="ghost" 
+            onClick={() => router.push('/profile/edit')}
+            className="text-blue-400 hover:text-blue-300 hover:bg-blue-500/10"
+          >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back
           </Button>
         </div>
       </header>
 
-      <main className="max-w-2xl mx-auto p-4 mt-6">
-        <Card>
+      <main className="max-w-2xl mx-auto px-4 sm:px-6 py-4 sm:py-6">
+        <Card className="bg-[#0a0a0a] border-blue-500/20">
           <CardHeader>
-            <CardTitle>Add Skill</CardTitle>
+            <CardTitle className="text-white text-xl sm:text-2xl">Add Skill</CardTitle>
           </CardHeader>
           <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               <div className="space-y-2">
-                <Label htmlFor="skillName">Skill Name *</Label>
+                <Label htmlFor="skillName" className="text-white">Skill Name *</Label>
                 <Input
                   id="skillName"
                   value={skillName}
                   onChange={(e) => setSkillName(e.target.value)}
                   placeholder="e.g., JavaScript, React, Node.js"
                   required
+                  className="bg-[#1a1a1a] border-blue-500/20 text-white placeholder:text-gray-500 focus-visible:border-blue-400"
                 />
               </div>
 
-              <div className="flex gap-2">
-                <Button type="submit" disabled={loading}>
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+                <Button 
+                  type="submit" 
+                  disabled={loading}
+                  className="bg-blue-600 hover:bg-blue-700 text-white flex-1 sm:flex-initial"
+                >
                   {loading ? 'Adding...' : 'Add Skill'}
                 </Button>
                 <Button
                   type="button"
                   variant="outline"
                   onClick={() => router.push('/profile/edit')}
+                  className="border-blue-500/20 text-blue-400 hover:bg-blue-500/10 flex-1 sm:flex-initial"
                 >
                   Cancel
                 </Button>

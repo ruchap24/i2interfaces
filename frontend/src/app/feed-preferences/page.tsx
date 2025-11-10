@@ -53,23 +53,23 @@ export default function FeedPreferencesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-4 relative z-10">
+    <div className="min-h-screen bg-black flex items-center justify-center px-4 py-8 sm:py-12 relative z-10">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="max-w-4xl w-full"
       >
         <Card className="bg-[#0a0a0a] border-blue-500/20">
-          <CardHeader>
-            <CardTitle className="text-white text-3xl text-center">
+          <CardHeader className="px-4 sm:px-6 pt-6 sm:pt-8">
+            <CardTitle className="text-white text-2xl sm:text-3xl text-center">
               Customize Your Feed
             </CardTitle>
-            <p className="text-gray-400 text-center mt-2">
+            <p className="text-gray-400 text-center mt-2 text-sm sm:text-base px-2">
               Select the types of posts you want to see in your feed
             </p>
           </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+          <CardContent className="px-4 sm:px-6 pb-6 sm:pb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8">
               {categories.map((category) => {
                 const Icon = category.icon;
                 const isSelected = selectedCategories.includes(category.id);
@@ -81,19 +81,19 @@ export default function FeedPreferencesPage() {
                   >
                     <button
                       onClick={() => handleToggle(category.id)}
-                      className={`w-full p-6 rounded-lg border-2 transition-all ${
+                      className={`w-full p-4 sm:p-6 rounded-lg border-2 transition-all ${
                         isSelected
                           ? 'border-blue-500 bg-blue-500/10'
                           : 'border-blue-500/20 bg-[#1a1a1a] hover:border-blue-500/40'
                       }`}
                     >
-                      <div className="flex flex-col items-center gap-3">
-                        <Icon className={`h-8 w-8 ${isSelected ? 'text-blue-400' : 'text-gray-400'}`} />
-                        <span className={`font-semibold ${isSelected ? 'text-blue-400' : 'text-white'}`}>
+                      <div className="flex flex-col items-center gap-2 sm:gap-3">
+                        <Icon className={`h-6 w-6 sm:h-8 sm:w-8 ${isSelected ? 'text-blue-400' : 'text-gray-400'}`} />
+                        <span className={`font-semibold text-sm sm:text-base ${isSelected ? 'text-blue-400' : 'text-white'}`}>
                           {category.label}
                         </span>
                         {isSelected && (
-                          <CheckCircle2 className="h-5 w-5 text-blue-400" />
+                          <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5 text-blue-400" />
                         )}
                       </div>
                     </button>
