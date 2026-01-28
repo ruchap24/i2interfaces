@@ -46,7 +46,7 @@ export default function Home() {
             <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
               <span className="text-white font-bold text-lg">∞</span>
             </div>
-            <span className="text-white text-xl font-semibold">I2Interfaces</span>
+            <span className="text-white text-xl font-semibold">I2interfaces</span>
           </div>
           <div className="flex items-center gap-4">
             <Link
@@ -115,8 +115,7 @@ export default function Home() {
             className="relative"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-purple-500/30 via-blue-500/30 to-purple-500/30 blur-3xl rounded-3xl -z-10" />
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-400/20 via-blue-400/20 to-purple-400/20 blur-2xl rounded-3xl -z-20" />
-            <div className="relative bg-gradient-to-b from-black/80 to-black/40 backdrop-blur-sm overflow-hidden p-4 sm:p-6 lg:p-8 rounded-2xl">
+    <div className="relative bg-gradient-to-b from-black/80 to-black/40 backdrop-blur-sm overflow-hidden p-4 sm:p-6 lg:p-8 rounded-2xl">
               <div className="absolute top-0 left-0 w-12 h-12 sm:w-16 sm:h-16 lg:w-24 lg:h-24 border-t-2 border-l-2 border-blue-500/50 rounded-tl-lg" />
               <div className="absolute top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 lg:w-24 lg:h-24 border-t-2 border-r-2 border-blue-500/50 rounded-tr-lg" />
               <div className="absolute bottom-0 left-0 w-12 h-12 sm:w-16 sm:h-16 lg:w-24 lg:h-24 border-b-2 border-l-2 border-blue-500/50 rounded-bl-lg" />
@@ -127,7 +126,7 @@ export default function Home() {
                 <div
                   className="bg-cover bg-center w-full h-80 sm:h-[500px] lg:h-[700px] flex items-center justify-center text-white text-xl sm:text-2xl lg:text-3xl font-bold transform transition-transform duration-700 hover:scale-105"
                   style={{
-                    backgroundImage: 'url("/home.png")',
+                    backgroundImage: 'url("/homeimg.png")',
                   }}
                 />
               </div>
@@ -207,7 +206,7 @@ export default function Home() {
           className="text-[clamp(3rem,10vw,12rem)] text-white uppercase tracking-[0.06em] leading-none select-none animate-pulse text-center whitespace-nowrap break-words px-4 max-w-[90vw]"
           style={{ fontFamily: 'Impact, "Arial Black", "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Bold", sans-serif', fontWeight: 900, fontStretch: 'condensed' }}
         >
-          i2interfaces
+          I2interfaces
         </h1>
       </div>
 

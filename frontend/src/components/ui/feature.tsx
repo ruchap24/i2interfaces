@@ -12,11 +12,8 @@ import Glow from "@/components/ui/glow";
 import { GoodText1 } from './GoodText';
 
 const Features = ({ forceDarkMode = true }) => {
-  const [activeFeature, setActiveFeature] = useState('idea-to-repo');
-  const [videoLoaded, setVideoLoaded] = useState(false);
-  const [iframeLoading, setIframeLoading] = useState(true);
+  const [activeFeature, setActiveFeature] = useState('feature 1');
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const videoRef = useRef(null);
   const sectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -36,66 +33,54 @@ const Features = ({ forceDarkMode = true }) => {
     }
   }, []);
 
+
   const premiumFeatures = [
     {
       id: 'feature 1',
       title: "feature 1",
       description: "",
       icon: <FaRocket />,
-      vimeoId: "1234567890",
-      posterSrc: "https://www.solidbackgrounds.com/images/1280x720/1280x720-black-solid-color-background.jpg"
+      imageSrc: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1280&h=720&fit=crop"
     },
     {
       id: 'feature 2',
       title: "feature 2",
       description: "",
       icon: <FaCode />,
-      vimeoId: "1234567890",
-      posterSrc: "https://www.solidbackgrounds.com/images/1280x720/1280x720-black-solid-color-background.jpg"
+      imageSrc: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1280&h=720&fit=crop"
     },
     {
       id: 'feature 3',
       title: "feature 3",
       description: "",
       icon: <FaFileAlt />,
-      vimeoId: "1234567890",
-      posterSrc: "https://www.solidbackgrounds.com/images/1280x720/1280x720-black-solid-color-background.jpg"
+      imageSrc: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1280&h=720&fit=crop"
     },
     {
       id: 'feature 4',
       title: "feature 4",
       description: "",
       icon: <FaEye />,
-      vimeoId: "1234567890",
-      posterSrc: "https://www.solidbackgrounds.com/images/1280x720/1280x720-black-solid-color-background.jpg"
+      imageSrc: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1280&h=720&fit=crop"
     },
     {
       id: 'feature 5',
       title: "feature 5",
       description: "",
       icon: <FaSearch />,
-      vimeoId: "1234567890",
-      posterSrc: "https://www.solidbackgrounds.com/images/1280x720/1280x720-black-solid-color-background.jpg"
+      imageSrc: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1280&h=720&fit=crop"
     },
     {
       id: 'feature 6',
-          title: "feature 6",
+      title: "feature 6",
       description: "",
       icon: <FaUsers />,
-      vimeoId: "1234567890",
-      posterSrc: "https://www.solidbackgrounds.com/images/1280x720/1280x720-black-solid-color-background.jpg"
+      imageSrc: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1280&h=720&fit=crop"
     }
   ];
 
   const handleFeatureClick = (id: string) => {
     setActiveFeature(id);
-    setVideoLoaded(false);
-    setIframeLoading(true);
-  };
-
-  const handleIframeLoad = () => {
-    setVideoLoaded(true);
-    setIframeLoading(false);
   };
 
   const activeFeatureData = premiumFeatures.find(f => f.id === activeFeature);
@@ -155,29 +140,12 @@ const Features = ({ forceDarkMode = true }) => {
                       />
                       <div className="relative overflow-hidden rounded-xl bg-black/40 backdrop-blur-sm border border-white/5">
                         <div className="relative aspect-video w-full">
-                          {feature.vimeoId ? (
-                            <>
-                              <iframe 
-                                key={feature.vimeoId}
-                                src={`https://player.vimeo.com/video/${feature.vimeoId}?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&background=1`}
-                                className="w-full h-full"
-                                frameBorder="0"
-                                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                                referrerPolicy="strict-origin-when-cross-origin"
-                                title={feature.title}
-                                onLoad={handleIframeLoad}
-                              />
-                              {iframeLoading && activeFeature === feature.id && (
-                                <div className="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm">
-                                  <div className="flex flex-col items-center gap-3">
-                                    <div className="w-8 h-8 border-2 border-white/20 border-t-white/80 rounded-full animate-spin"></div>
-                                    <span className="text-white/70 text-sm">Loading video...</span>
-                                  </div>
-                                </div>
-                              )}
-                            </>
-                          ) : null}
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                          <img 
+                            src={feature.imageSrc} 
+                            alt={feature.title}
+                            className="absolute inset-0 w-full h-full object-cover"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"></div>
                         </div>
                         <div className="p-4 bg-black/40 backdrop-blur-sm">
                           <div className="flex items-center mb-2">
@@ -230,7 +198,7 @@ const Features = ({ forceDarkMode = true }) => {
                     inactiveZone={0.01}
                   />
                   <div className="relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl bg-black/40 backdrop-blur-sm p-6 border border-white/5 md:p-6 dark:shadow-[0px_0px_27px_0px_#2D2D2D]">
-                    <div className="flex items-center">
+                    <div className="relative z-10 flex items-center">
                       <div className="w-fit rounded-lg border border-white/20 bg-white/5 p-2 backdrop-blur-sm mr-4">
                         <div className="h-4 w-4 text-white">
                           {feature.icon}
@@ -274,43 +242,15 @@ const Features = ({ forceDarkMode = true }) => {
               />
               <div className="relative overflow-hidden rounded-xl bg-black/40 backdrop-blur-sm border border-white/5 dark:shadow-[0px_0px_27px_0px_#2D2D2D]">
               <div className="relative aspect-video w-full">
-                {activeFeatureData?.vimeoId ? (
-                  <>
-                    <iframe 
-                      key={activeFeatureData?.vimeoId}
-                      src={`https://player.vimeo.com/video/${activeFeatureData.vimeoId}?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&background=1`}
-                      className="w-full h-full"
-                      frameBorder="0"
-                      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      title={activeFeatureData.title}
-                      onLoad={handleIframeLoad}
-                    />
-                    {iframeLoading && (
-                      <div className="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm border border-white/10 rounded-xl">
-                        <div className="flex flex-col items-center gap-4">
-                          <div className="relative">
-                            <div className="w-12 h-12 border-2 border-white/20 border-t-blue-400/80 rounded-full animate-spin"></div>
-                            <div className="absolute inset-0 w-12 h-12 border-2 border-transparent border-r-cyan-400/60 rounded-full animate-spin" style={{animationDirection: 'reverse', animationDuration: '1.5s'}}></div>
-                          </div>
-                          <div className="text-center">
-                            <span className="text-white/90 text-base font-medium">Loading {activeFeatureData.title}</span>
-                            <div className="text-white/60 text-sm mt-1">Please wait...</div>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-[url('https://www.solidbackgrounds.com/images/1280x720/1280x720-black-solid-color-background.jpg')] bg-cover">
-                    <div className="flex items-center gap-3 text-white/80">
-                      <FaFileAlt className="w-6 h-6" />
-                      <span className="text-sm">Preview coming soon</span>
-                    </div>
-                  </div>
+                {activeFeatureData?.imageSrc && (
+                  <img 
+                    src={activeFeatureData.imageSrc} 
+                    alt={activeFeatureData.title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
                 )}
-                {/* Video overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                {/* Image overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"></div>
               </div>
 
                 <div className="p-6 bg-black/40 backdrop-blur-sm">

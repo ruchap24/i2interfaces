@@ -99,7 +99,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-neutral-800 mt-8 pt-4 text-center text-xs text-neutral-500">
-        © {new Date().getFullYear()} I2Interfaces — All rights reserved.
+        © {new Date().getFullYear()} I2interfaces — All rights reserved.
       </div>
     </footer>
   )

@@ -6,7 +6,7 @@ import { Toaster } from 'sonner';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'i2interfaces',
+  title: 'I2interfaces',
   description: 'professional profile application',
 };
 
